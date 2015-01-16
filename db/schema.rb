@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116091050) do
+ActiveRecord::Schema.define(version: 20150116094439) do
+
+  create_table "girls", force: true do |t|
+    t.string   "title"
+    t.integer  "video_girlships_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "title"
+    t.integer  "video_tagships_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,5 +44,35 @@ ActiveRecord::Schema.define(version: 20150116091050) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "video_girlships", force: true do |t|
+    t.integer  "video_id",   default: 0, null: false
+    t.integer  "girl_id",    default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "video_tagships", force: true do |t|
+    t.integer  "video_id",   default: 0, null: false
+    t.integer  "tag_id",     default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", force: true do |t|
+    t.string   "title",       default: "",    null: false
+    t.string   "cover"
+    t.string   "preview"
+    t.string   "url",         default: "",    null: false
+    t.text     "introduce"
+    t.boolean  "is_download", default: false
+    t.string   "rtmp_host",   default: "",    null: false
+    t.string   "rtmp_path",   default: "",    null: false
+    t.boolean  "has_parsed"
+    t.boolean  "has_video"
+    t.integer  "views",       default: 0,     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
