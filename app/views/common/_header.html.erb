@@ -1,0 +1,16 @@
+<%= navbar id: 'navbar' do %>
+  <%= vertical do %>
+    <%= link_to 'X.com', root_path %>
+  <% end %>
+  <%= horizontal class: :en, data: {js: 2} do %>
+    <%= nav class: 'navbar-left' do %>
+      <%= link_to 'Movies', '/#profile' %>
+      <%= link_to 'Tags', '/#settings' %>
+    <% end %>
+
+    <%= nav class: 'navbar-right' do %>
+      <%= link_to 'My Profile', edit_user_registration_path %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>

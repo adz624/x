@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>X</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h2>Log in</h2>
+      <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.email_field :email, autofocus: true %>
+        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.check_box :remember_me %>
+        <%= f.submit "Log in", class: 'btn btn-default btn-lg btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>
