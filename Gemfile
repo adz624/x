@@ -63,6 +63,7 @@ gem 'public_activity'
 
 # User System
 gem 'devise'
+gem 'devise-i18n'
 
 # Others tools
 gem 'aescrypt'
