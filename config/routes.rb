@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: :registrations
   devise_scope :user do
     resource :registration,
-      only: [:new, :create, :edit, :update],
+      only: [:edit, :update],
       path: 'users',
       path_names: { new: 'sign_up' },
       controller: 'devise/registrations',
