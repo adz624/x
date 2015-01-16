@@ -10,5 +10,7 @@ Rails.application.routes.draw do
         get :cancel
       end
   end
-  root 'home#index'
+  
+  root 'videos#index'
+  resources :videos
 end
