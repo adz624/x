@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   
   root 'videos#index'
-  resources :videos
+  resources :videos, :girls, :tags, only: [:index, :show]
 end
