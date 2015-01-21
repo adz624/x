@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_video
+  before_action :set_video, only: :show
 
   # GET /videos
   def index
