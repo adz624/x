@@ -3,13 +3,13 @@ class VideosController < ApplicationController
 
   # GET /videos
   def index
-    @videos = Video.all.page(params[:page])
+    @videos = Video.all.includes(:girls, :tags).page(params[:page])
   end
 
   # GET /videos/search
   def search
     @q = (params[:search] || {})[:q]
-    @videos = Video.search_keyword(@q).page(params[:page])
+    @videos = Video.search_keyword(@q).includes(:girls, :tags).page(params[:page])
     render :index
   end
 
