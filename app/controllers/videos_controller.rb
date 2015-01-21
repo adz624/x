@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 
   # GET /videos
   def index
-    @videos = Video.all.page(params[:id])
+    @videos = Video.all.page(params[:page])
   end
 
   # GET /videos/:id
@@ -11,7 +11,6 @@ class VideosController < ApplicationController
     @tags = @video.tags
     @girls = @video.girls
   end
-
 
   protected
 
