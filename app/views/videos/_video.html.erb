@@ -3,7 +3,20 @@
     <%= link_to(image_tag('http://placehold.it/134x190'), video) %>
     <div class="caption">
       <strong><%= link_to(video.title, video) %></strong>
-      <p><%= truncate(video.introduce, length: 30) %>
+      <p><%= truncate(video.introduce, length: 30) %></p>
+      <hr>
+      <% video.girls.in_groups_of(4, false).each do |girls| %>
+        <% girls.each do |girl| %>
+          <span class="label label-danger"><%= link_to(girl.title, girl) %></span>
+        <% end %>
+        <div class="clearfix push-xs"></div>
+      <% end %>
+      <% video.tags.in_groups_of(4, false).each do |tags| %>
+        <% tags.each do |tag| %>
+          <span class="label label-primary"><%= link_to(tag.title, tag) %></span>
+        <% end %>
+        <div class="clearfix push-xs"></div>
+      <% end %>
     </div>
   </div>
 <% end %>
