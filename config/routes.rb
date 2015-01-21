@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       end
   end
   
-  root 'videos#index'
-  resources :videos, :girls, :tags, only: [:index, :show]
+  root 'home#index'
+  resources :girls, :tags, only: [:index, :show]
+
+  resources :videos, only: [:index, :show] do
+    get :search, on: :collection
+  end
 end
