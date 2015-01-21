@@ -29,11 +29,11 @@ gem 'spring',        group: :development
 # Style, Views, Template (libraries & tools)
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'will_paginate'
-gem 'bh', '~> 1.2' # bootstrap helpers
+gem 'will_paginate-bootstrap'
 gem 'font-awesome-rails'
 gem 'http_accept_language'
 gem 'rails_autolink', '~> 1.1.6'
-
+gem 'active_link_to'
 gem 'cells'
 gem 'haml-rails'
 gem 'nprogress-rails'
