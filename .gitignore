@@ -15,3 +15,4 @@
 /config/database.yml
 /config/setting.yml
 /config/secrets.yml
+/preconfig
