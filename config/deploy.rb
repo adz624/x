@@ -8,7 +8,7 @@ set :rvm_type, :user
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 # Recipes Included
-include_recipes :nginx, :puma, :db, :dev
+include_recipes :secret, :nginx, :puma, :db, :dev, :fast_assets
 
 # Nginx
 set :nginx_upstream_via_sock_file, false
@@ -22,9 +22,6 @@ set :puma_thread_min, 32
 set :puma_thread_max, 32
 set :puma_workers, 3
 
-# Role Settings
-server '11.222.33.44', :web, :app, :db, primary: true
-
 # Capistrano Base Setting
 set :application, 'x'
 set :user, 'rails'
@@ -35,7 +32,7 @@ set :rails_env, :production
 
 # Git Settings
 set :scm, :git
-set :repository, "git@github.com:afunction/#{application}.git" # your git source, and make sure your server have premission to access your git server
+set :repository, "https://github.com/afunction/#{application}.git" # your git source, and make sure your server have premission to access your git server
 set :branch, :master # the branch you want to deploy
 
 # Extra settings
@@ -43,3 +40,4 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after 'deploy', 'deploy:cleanup' # keep only the last 5 releases
+load_config_from "./preconfig/config", :production
