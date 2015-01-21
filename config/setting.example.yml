@@ -1,0 +1,13 @@
+defaults: &defaults
+  pusher:
+    app_id: ''
+    key: ''
+    secret: ''
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
