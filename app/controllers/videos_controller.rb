@@ -6,6 +6,13 @@ class VideosController < ApplicationController
     @videos = Video.all.page(params[:page])
   end
 
+  # GET /videos/search
+  def search
+    @q = (params[:search] || {})[:q]
+    @videos = Video.search_keyword(@q).page(params[:page])
+    render :index
+  end
+
   # GET /videos/:id
   def show
     @tags = @video.tags

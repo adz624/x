@@ -18,9 +18,9 @@
         <%= active_link_to('Tags', tags_path, wrap_tag:  :li) %>
         <%= active_link_to('Girls', girls_path, wrap_tag:  :li) %>
       </ul>
-      <%= form_for(:search, url: search_videos_path, html: { class: 'navbar-form navbar-left' }) do |f| %>
+      <%= form_for(:search, url: search_videos_path, method: :get, html: { class: 'navbar-form navbar-left' }) do |f| %>
         <div class="form-group">
-          <%= f.text_field :q, placeholder: 'Video Title, Tags, Girls', class: 'form-control' %>
+          <%= f.text_field :q, value: @q, placeholder: 'Video Title, Tags, Girls', class: 'form-control' %>
         </div>
         <%= f.submit 'Search', class: 'btn btn-default' %>
       <% end %>
