@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   
   root 'home#index'
-  resources :girls, :tags, only: [:index, :show]
+  resources :girls, :tags, only: [:show]
 
   resources :videos, only: [:index, :show] do
     get :search, on: :collection
