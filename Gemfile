@@ -37,7 +37,7 @@ gem 'active_link_to'
 gem 'cells'
 gem 'haml-rails'
 gem 'nprogress-rails'
-gem 'zeroclipboard-rails'
+gem 'jwplayer-rails'
 
 # Form Objects
 gem 'reform'
