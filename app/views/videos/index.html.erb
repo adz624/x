@@ -1,11 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
-    <% if @q.present? %>
-      Keyword: <i><%= @q %></i>
-      <hr>
-    <% end %>
-    <%= will_paginate(@videos, renderer: BootstrapPagination::Rails) %>
-  </div>
+  <div class="col-md-12"><%= will_paginate(@videos, renderer: BootstrapPagination::Rails) %></div>
   <% if @videos.empty? %>
     <div class="alert alert-danger">No Data.</div>
   <% else %>
