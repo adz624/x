@@ -1,0 +1,8 @@
+<h1>
+  <%= @tag.title %>
+  <small>
+    <%= @tag.videos.size %> video(s)
+  </small>
+</h1>
+<hr>
+<%= render template: 'videos/index' %>
