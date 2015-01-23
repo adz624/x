@@ -4,15 +4,15 @@
   <title>X</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= jwplayer_assets %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'common/header' %>
-<%= render 'common/notice' %>
+  <%= render 'common/header' %>
+  <%= render 'common/notice' %>
 
-<div class="container">
-  <%= yield %>
-</div>
-
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

@@ -13,4 +13,8 @@ class Video < ActiveRecord::Base
       where('title LIKE ?', "%#{keyword}%")
     end
   }
+
+  def rtmp_fullpath
+    @rtmp_fullpath ||= "#{rtmp_host}mp4:#{rtmp_path}"
+  end
 end
