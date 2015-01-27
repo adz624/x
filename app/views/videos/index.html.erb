@@ -1,5 +1,5 @@
 <div class="row">
-  <%= render 'other_result' %>
+  <%= render 'videos/other_result' %>
   
   <div class="col-md-12"><%= will_paginate(@videos, renderer: BootstrapPagination::Rails) %></div>
   <% if @videos.empty? %>
