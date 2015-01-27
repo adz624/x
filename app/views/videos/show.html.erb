@@ -22,6 +22,7 @@
     </div>
   </div>
   <div class="col-md-9">
+    <%= image_tag(@video.image_path, style: 'width: 100%') %>
     <%= render_player(@video) %>
     <hr>
     <div class="panel panel-default">

@@ -1,6 +1,6 @@
 <%= div_for(video, class: 'col-md-3 item-video') do %>
   <div class="thumbnail">
-    <%= link_to(image_tag('http://placehold.it/134x190'), video) %>
+    <%= link_to(image_tag(video.thumb_image_path), video) %>
     <div class="caption">
       <strong><%= link_to(video.title, video) %></strong>
       <p><%= truncate(video.introduce, length: 30) %></p>

@@ -17,4 +17,12 @@ class Video < ActiveRecord::Base
   def rtmp_fullpath
     @rtmp_fullpath ||= "#{rtmp_host}mp4:#{rtmp_path}"
   end
+
+  def thumb_image_path
+    @thumb_image_path ||= "/shared_images/#{id}.jpg"
+  end
+
+  def image_path
+    @image_path ||= "/shared_images/#{id}-lg.jpg"
+  end
 end
