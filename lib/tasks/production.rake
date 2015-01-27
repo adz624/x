@@ -39,7 +39,6 @@ namespace :production do
       rescue Exception => e
         puts "#{Time.now} => Faild! #{video.id} => #{e.inspect}"
       end
-      sleep(1.5)
     end
   end
 end
