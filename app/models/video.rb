@@ -4,7 +4,7 @@ class Video < ActiveRecord::Base
   has_many :video_girlships
   has_many :video_tagships
 
-  default_scope { order(id: :desc) }
+  default_scope { where(is_download: true).order(id: :desc) }
 
   scope :search_keyword, -> (keyword=nil) {
     if keyword.blank?
