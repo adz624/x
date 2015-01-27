@@ -40,4 +40,19 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after 'deploy', 'deploy:cleanup' # keep only the last 5 releases
+
+namespace :images do
+  desc "setup the shared path image folder"
+  task :setup, roles: :web do
+    mkdir "#{shared_path}/shared_images/"
+  end
+  after 'deploy:setup', 'images:setup'
+
+  desc "setup the symlinks for image folder"
+  task :symlinks, roles: :web do
+    run "ln -nfs #{shared_path}/shared_images #{release_path}/public/shared_images"
+  end
+  after "deploy:finalize_update", "images:symlinks"
+end
+
 load_config_from "./preconfig/config", :production
