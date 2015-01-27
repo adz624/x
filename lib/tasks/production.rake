@@ -33,10 +33,10 @@ namespace :production do
         File.open("/home/rails/apps/x/current/public/shared_images/#{video_id}-lg.jpg", 'wb') do |fo|
           fo.write open(ENV['IMAGE_PATH'].gsub(':id', video_id)).read
         end
-        puts "Save! #{video.id}"
+        puts "#{Time.now} => Save! #{video.id}"
         video.update(is_download: true)
       rescue Exception => e
-        puts "Faild! #{video.id} => #{e.inspect}"
+        puts "#{Time.now} => Faild! #{video.id} => #{e.inspect}"
       end
     end
   end
