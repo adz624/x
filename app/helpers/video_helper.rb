@@ -6,7 +6,6 @@ module VideoHelper
                         height: '800',
                         file: video.rtmp_fullpath,
                         image: video.image_path,
-                        skin: 'bekle',
                         rtmp: {
                           bufferlength: 6
     })
