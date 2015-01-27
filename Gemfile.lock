@@ -157,7 +157,7 @@ GEM
     fog-softlayer (0.3.30)
       fog-core
       fog-json
-    font-awesome-rails (4.2.0.0)
+    font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     haml (4.1.0.beta.1)
