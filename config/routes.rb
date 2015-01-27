@@ -17,4 +17,9 @@ Rails.application.routes.draw do
   resources :videos, only: [:index, :show] do
     get :search, on: :collection
   end
+
+
+  namespace :admin do
+    resources :users, except: :destory
+  end
 end
