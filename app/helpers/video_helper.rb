@@ -5,7 +5,11 @@ module VideoHelper
                         width: '100%',
                         height: '800',
                         file: video.rtmp_fullpath,
-                        image: video.image_path)
+                        image: video.image_path,
+                        skin: 'bekle',
+                        rtmp: {
+                          bufferlength: 6
+    })
     jwplayer(options)
   end
 end
