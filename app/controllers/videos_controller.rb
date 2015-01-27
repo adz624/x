@@ -10,6 +10,8 @@ class VideosController < ApplicationController
   def search
     @q = (params[:search] || {})[:q]
     @videos = Video.search_keyword(@q).includes(:girls, :tags).page(params[:page])
+    @tags = Tag.search_keyword(@q)
+    @girls = Girl.search_keyword(@q)
     render :index
   end
 

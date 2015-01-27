@@ -1,0 +1,13 @@
+<% if @girls.present? || @tags.present? %>
+  <div class="girls">
+    <% @girls.each do |girl| %>
+      <span class="label label-danger"><%= link_to(girl.title, girl) %></span>
+    <% end %>
+  </div>
+  <div class="tags">
+    <% @tags.each do |tag| %>
+      <span class="label label-primary"><%= link_to(tag.title, tag) %></span>
+    <% end %>
+  </div>
+  <hr>
+<% end %>
