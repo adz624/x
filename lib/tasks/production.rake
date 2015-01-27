@@ -22,17 +22,18 @@ namespace :production do
   task :download => :environment do
     require "open-uri"
 
-    Video.where(is_download: false).each do |video|
+    Video.unscoped.where(is_download: false).each do |video|
       video_id = video.id.to_s
 
       begin
+        File.open("/home/rails/apps/x/current/public/shared_images/#{video_id}-lg.jpg", 'wb') do |fo|
+          fo.write open(ENV['IMAGE_PATH'].gsub(':id', video_id)).read
+        end
+
         File.open("/home/rails/apps/x/current/public/shared_images/#{video_id}.jpg", 'wb') do |fo|
           fo.write open(ENV['THUMB_PATH'].gsub(':id', video_id)).read
         end
 
-        File.open("/home/rails/apps/x/current/public/shared_images/#{video_id}-lg.jpg", 'wb') do |fo|
-          fo.write open(ENV['IMAGE_PATH'].gsub(':id', video_id)).read
-        end
         puts "#{Time.now} => Save! #{video.id}"
         video.update(is_download: true)
       rescue Exception => e
