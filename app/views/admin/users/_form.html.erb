@@ -1,0 +1,7 @@
+<%= bootstrap_form_for([:admin, @user]) do |f| %>
+  <%= f.email_field :email, autofocus: true %>
+  <%= f.password_field :password, autocomplete: "off" %>
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <%= f.check_box :admin %>
+  <%= f.submit("Save", class: 'btn btn-default btn-lg btn-block') %>
+<% end %>
